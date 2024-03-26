@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example-app-staging
+  namespace: default
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: example-staging
+  template:
+    metadata:
+      labels:
+        app: example-staging
+    spec:
+      containers:
+      - name: example-container
+        image: nginx:latest
+        ports:
+        - containerPort: 80s
