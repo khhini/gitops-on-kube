@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example-app-production
+  namespace: default
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: example-production
+  template:
+    metadata:
+      labels:
+        app: example-production
+    spec:
+      containers:
+      - name: example-container
+        image: nginx:stable-alpine
+        ports:
+        - containerPort: 80s
